@@ -2,21 +2,32 @@ require 'rails_helper'
 
 RSpec.describe HomeController, :type => :controller do
   describe "GET index" do
-    it "asks the Station model to get a list of all stations" do
-      expect(Station).to receive(:all)
-      get :index
+    describe "data retrieval" do
+      it "asks the Station model to get a list of all stations" do
+        expect(Station).to receive(:all)
+
+        get :index
+      end
     end
 
-    it "assign to @stations the list of stations that are in the db" do
-      get :index
+    describe "response" do
+      before :each do
+        get :index
+      end
 
-      # expect the controller to set an instance variable
-      # @stations, which has an array of stations
-      expect(assigns(:stations)).to be_an(ActiveRecord::Relation)
-    end
+      it "assign to @stations the list of stations that are in the db" do
+        # expect the controller to set an instance variable
+        # @stations, which has an array of stations
+        expect(assigns(:stations)).to be_an(ActiveRecord::Relation)
+      end
 
-    it "should be ok" do
-      get :index
+      it "should be ok" do
+        expect(response.status).to eq(200)
+      end
+
+      it "renders the index template" do
+        expect(response).to render_template('home/index')
+      end
     end
   end
 end
