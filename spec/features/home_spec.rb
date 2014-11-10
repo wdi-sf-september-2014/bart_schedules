@@ -10,6 +10,5 @@ feature "Home", :type => :feature do
 
     expect(page).to have_text("Departures by station")
     expect(page).to have_text(station.name)
-    save_and_open_page
   end
 end
