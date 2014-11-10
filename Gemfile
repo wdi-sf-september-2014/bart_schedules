@@ -59,6 +59,8 @@ group :development do
   gem 'pry-rails'
   # omg. this is better than butter on sliced bread.
   gem 'pry-byebug'
+  # quite down the asset pipeline nonsense in the rails log
+  gem 'quiet_assets'
 end
 
 group :doc do
