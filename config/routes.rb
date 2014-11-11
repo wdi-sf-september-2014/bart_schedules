@@ -8,8 +8,9 @@ BartSchedules::Application.routes.draw do
   # StationsController#create and define a path helper stations_path
   post 'stations', to: 'stations#create', as: 'stations'
 
-  # this route will match post requests to /stations/:id and route them to
-  # StationsController#show, passing the id and define a path helper station_path
+  # this route will match get requests to /stations/:id and route them to
+  # StationsController#show, passing the id in parms 
+  # it will also define a path helper station_path
   get 'stations/:id', to: 'stations#show', as: 'station'
   # You can have the root of your site routed with "root"
   root 'home#index'
