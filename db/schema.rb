@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141107201354) do
+ActiveRecord::Schema.define(version: 20141112224315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "departures", force: true do |t|
+    t.string   "line"
+    t.string   "time"
+    t.integer  "station_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "departures", ["station_id"], name: "index_departures_on_station_id", using: :btree
 
   create_table "stations", force: true do |t|
     t.string   "name"

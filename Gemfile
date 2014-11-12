@@ -61,6 +61,8 @@ group :development do
   gem 'pry-byebug'
   # quite down the asset pipeline nonsense in the rails log
   gem 'quiet_assets'
+
+  gem 'awesome_print', :require => 'ap'
 end
 
 group :doc do
